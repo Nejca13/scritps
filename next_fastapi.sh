@@ -152,9 +152,9 @@ app = FastAPI()
 async def on_startup():
     await init_db()  # Inicializar la base de datos Beanie
 
-app.include_router(usuarios.router, prefix="/usuarios", tags=["Usuarios"])  # Incluir el router de usuarios
+app.include_router(usuarios.router, tags=["Usuarios"])  # Incluir el router de usuarios
 
-app.include_router(auth.router, prefix="/auth", tags=["Auth"])
+app.include_router(auth.router, tags=["Auth"])
 
 EOL
 
@@ -344,16 +344,13 @@ echo -e "\n"
 echo -e "${GREEN}El frontend esta disponible en ${BLUE}http://localhost:3000${NC}"
 echo -e "${GREEN}El backend esta disponible en ${BLUE}http://localhost:8000${NC}"
 
-# Cambiar al directorio del proyecto
-cd $PROJECT_NAME  # Asegúrate de que el directorio existe
-
 # Ejecutar el comando pnpm run dev en segundo plano
 pnpm run dev &
 
 # Mostrar opciones al usuario
 function show_options() {
   echo -e "\n${YELLOW}Opciones disponibles:"
-  echo -e "${BLUE}  [O] - Abrir el editor de código${NC}"
+  echo -e "${BLUE}  [O] - Abrir el editor de código - [Solo funciona con VSCode]${NC}"
   echo -e "${BLUE}  [W] - Abrir el navegador en el frontend${NC}"
   echo -e "${BLUE}  [Q] - Salir del script${NC}"
   echo -e "${GREEN}Presiona la tecla correspondiente..."
