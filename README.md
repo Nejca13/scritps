@@ -1,0 +1,2 @@
+# scritps
+Coleccionde scripts bash
